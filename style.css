@@ -986,19 +986,42 @@ section {
 	box-shadow: none;
 	border: 1px solid  #ea0889;
 }
-
 .modal-content .close {
 	position: absolute;
-	right: 8px;
-	top: 8px;
-	/*86 75*/
+	right: 0;
+	top: 0;
+	box-sizing: content-box;
+	height: 3.41em;
+	width: 4.1em;
+	border: 7px solid #ea0889;
+	border-left: 0;
+	text-indent: -99999em;
+	background: url(img/closebutton.png) no-repeat center center;
+	background-size: cover;
+	box-shadow: none;
+	border-radius: 0;
+	opacity: 1;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 }
+#lft-modal-loading {
+	width: 32px;
+	height: 32px;
+	text-indent: -99999em;
+	background: url(img/trobber.gif) no-repeat;
+	margin: 4em auto;
+}
+
+
 .entry-header h1 {
 	border: 7px solid  #ea0889;
 	border-bottom-width: 8px;
 	font-size: 2.36em;
 	line-height: 1;
-	padding: 0.22em 1.1em;
+	padding: 0.22em 2.98em 0.22em 1.1em;
+	margin: 0;
+}
+.lft-galleryitem-title {
+	font-size: 1em;
 	margin: 0;
 }
 .entry-header img {
@@ -1009,8 +1032,13 @@ section {
 	padding: 4.23%;
 	margin: 0;
 }
-
+.entry-content a {
+	color: #ea0889;
+}
 
 .lft_archiveitem .p-date {
 	display: none;
+}
+.modal-content .hentry {
+	margin: 0;
 }
