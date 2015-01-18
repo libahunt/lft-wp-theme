@@ -1,13 +1,18 @@
 jQuery(function($) {
+	
+	$('#uudised .more-link').attr('data-open','lft-modal');
 
-	/*$('[data-toggle="modal"]').click(function(e) {
+	$('[data-open="lft-modal"]').click(function(e) {
 		e.preventDefault();
+		$("#lft-modal-content").empty();
+		$("#lft-modal-loading").show();
+		$('#lft-modal').modal();
 		var url = $(this).attr('href');
-		$.get(url, function(data) {
-			$(data).modal();
+		$("#lft-modal-content").load(url+" #primary", function() {
+			$("#lft-modal-loading").hide();
 		});
-		
-	});*/
+		return false;
+	});
 
 
 });

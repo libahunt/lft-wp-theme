@@ -5,11 +5,13 @@
  * @package ladyfest tln 15
  */
 
+
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 1180; /* pixels */
 }
 
 if ( ! function_exists( 'lft_setup' ) ) :
@@ -49,6 +51,7 @@ function lft_setup() {
 	add_theme_support( 'post-thumbnails' );
 
   add_image_size( 'lft-gallery-thumb', 588, 378, true ); // Hard Crop Mode
+  add_image_size( 'lft-post-header', 1180, 350, true ); // Hard Crop Mode
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
