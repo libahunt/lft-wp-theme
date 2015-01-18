@@ -14,6 +14,17 @@ jQuery(function($) {
 		return false;
 	});
 
+	$('#anchors-menu').addClass('togglable');
+	$('#anchors-menu').hide();
+	$('#anchors-menu-toggle').show();
+	$('#anchors-menu-toggle').click(function() {
+		$('#anchors-menu').toggle();
+	});
+	$('#anchors-menu a').click(function() {
+		$('#anchors-menu').hide();
+		return true;
+	});
+
 
 });
 
