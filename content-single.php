@@ -13,7 +13,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<p><?php the_date('d.m.Y', '<span class="news-date">', '<span>'); ?></p>
+		<p class="p-date"><?php the_date('d.m.Y', '<span class="news-date">', '<span>'); ?></p>
 		<?php the_content(); ?>
 		<?php
 			/*wp_link_pages( array(
