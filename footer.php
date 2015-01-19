@@ -17,6 +17,9 @@
 
 <?php wp_footer(); ?>
 
+<div id="scrollarrow"></div>
+<div id="scrollarrow-cover"></div>
+
 <div id="lft-modal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">

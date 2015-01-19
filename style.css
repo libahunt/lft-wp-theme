@@ -709,6 +709,11 @@ body {
 	line-height: 1.36;
 	font-weight: 300;
 	font-family: Lato, sans-serif;
+	position: relative;
+	padding-bottom: 2.6em;
+}
+a {
+	outline: none;
 }
 #page,
 #lft-modal {
@@ -745,19 +750,19 @@ body {
 	width: 100%;
 	max-width: 1180px;
 	text-align: center;
-	padding: 3% 0 12%;
+	padding: 1em 0 4.5em;
 	height: 700px;
-	margin: 0 auto;
+	margin: 0 auto 100px;
 	overflow: hidden;
 }
 /*logo and date should fill all of the initial height*/
-@media screen and (min-height: 0px) {#masthead { height: 320px; }}
-@media screen and (min-height: 400px) {#masthead { height: 500px; }}
-@media screen and (min-height: 500px) {#masthead { height: 600px; }}
-@media screen and (min-height: 600px) {#masthead { height: 700px; }}
-@media screen and (min-height: 700px) {#masthead { height: 800px; }}
-@media screen and (min-height: 800px) {#masthead { height: 900px; }}
-@media screen and (min-height: 900px) {#masthead { height: 1000px; }}
+@media screen and (min-height: 0px) {#masthead { height: 290px; }}
+@media screen and (min-height: 400px) {#masthead { height: 370px; }}
+@media screen and (min-height: 500px) {#masthead { height: 470px; }}
+@media screen and (min-height: 600px) {#masthead { height: 570px; }}
+@media screen and (min-height: 700px) {#masthead { height: 670px; }}
+@media screen and (min-height: 800px) {#masthead { height: 770px; }}
+@media screen and (min-height: 900px) {#masthead { height: 870px; }}
 
 #masthead .site-branding {
 	text-align: center;
@@ -834,13 +839,6 @@ body {
 	max-width: 1180px;
 	background: #ffffff;
 }
-#anchors-menu.togglable {
-	float: right;
-	position: fixed;
-	right: 2.93em;
-	top: 0.837em;
-	z-index: 100;
-}
 #anchors-menu ul {
 	display: inline-block;
 	padding: 0;
@@ -861,12 +859,49 @@ body {
 	color: #5d5d5d;
 }
 
+#scrollarrow {
+	position: fixed;
+	bottom: 0.2em;
+	left: 50%;
+	width: 2.3em;
+	height: 2.3em;
+	background: url(img/downarrow.png) no-repeat center center;
+	background-size: 2.3em 2.3em;
+	margin: 0 0 0 -1.15em;
+	z-index: 110;
+}
+#scrollarrow-cover {
+	position: absolute;
+	bottom: 0.2em;
+	left: 50%;
+	width: 2.3em;
+	height: 4.6em;
+	margin: 0 0 0 -1.15em;
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	z-index: 111;
+}
+#scrollarrow,
+#scrollarrow-cover {
+	display: none;
+}
+.home #scrollarrow,
+.home #scrollarrow-cover {
+	display: block;
+}
+
 /*********************************** FRONT PAGE **************************************/
 section {
 	margin-bottom: 2em;
 }
 
 /*section headings*/
+#toetajad h2,
 #uudised h2,
 #kava h2,
 #tootoad h2,
@@ -998,7 +1033,7 @@ section {
 
 /*** ARCHIVE SECTION ***/
 #arhiiv {
-	margin-bottom: 4em;
+	
 }
 .lft-archiveitem-col {
 	padding-top: 15px;
@@ -1036,7 +1071,63 @@ section {
 	vertical-align: middle;
 }
 
-
+/*** SPONSORS SECTION ***/
+#toetajad {
+	
+}
+#toetajad ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 1.18em;
+	line-height: 1.15;
+}
+#toetajad li {
+	list-style: none;
+}
+.lft-sponsors-col {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.lft-sponsors-col .box {
+	border: 1px solid #ea0889;
+	display: block;
+	position: relative;
+	height: 1px;
+	padding: 0 0 63.8%;
+	overflow: hidden;
+}
+.lft-sponsors-col .overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+.lft-sponsors-col .name {
+	font-size: 2em;
+	padding: 0.5em 1em;
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	display: table;
+	height: 100%;
+	font-size: 1.4em;
+	font-weight: 400;
+}
+.lft-sponsors-col .name span {
+	display: table-cell;
+	vertical-align: middle;
+}
+.lft-sponsors-col.sponsor-logo .overlay {
+	display: none;
+	background: rgba(0, 0, 0, 0.5);
+	color: #ffffff;
+}
+.lft-sponsors-col.sponsor-logo:hover .overlay {
+	display: block;
+}
 
 /********************************* MODAL WINDOW *****************************************/
 .modal-dialog {

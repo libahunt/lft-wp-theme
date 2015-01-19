@@ -113,7 +113,7 @@ function create_post_type() {
       'public' => true,
       'has_archive' => true,
       'menu_position' => 5,
-      'menu_icon' => 'dashicons-groups',
+      'menu_icon' => 'dashicons-hammer',
       'supports' => array(
       	'title',
 		'editor',
@@ -172,6 +172,23 @@ function create_post_type() {
       	'title',
 		'editor',
 		'thumbnail'
+      ),
+    )
+  );
+  register_post_type( 'lft_sponsor',
+    array(
+      'labels' => array(
+        'name' => __( 'Sponsorid' ),
+        'singular_name' => __( 'Sponsor' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'menu_position' => 6,
+      'menu_icon' => 'dashicons-cart',
+      'supports' => array(
+        'title',
+    'editor',
+    'thumbnail'
       ),
     )
   );

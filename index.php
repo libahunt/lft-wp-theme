@@ -62,6 +62,13 @@ $args = array(
 );
 $archiveitems = new WP_Query( $args );
 
+$args = array( 
+	'post_type' => 'lft_sponsor',
+	'nopaging' => 'true', 
+	'order' => 'DESC' 
+);
+$sponsors = new WP_Query( $args );
+
 /*EVENT DATES DISPLAY*/
 function lft_format_date($yyyyxmmxdd) {
   //$dayofweek = date('w', strtotime($date));
@@ -72,9 +79,10 @@ function lft_format_date($yyyyxmmxdd) {
 
 ?>
 
-<a id="anchors-menu-toggle">Menüü</a>
+<a id="anchors-menu-toggle" href="#anchors-menu">Menüü</a>
 <nav id="anchors-menu">
 	<ul>
+		<li><?php if ( $sponsors->have_posts() ) : echo('<a href="#toetajad">Toetajad</a>'); endif; ?></li>
 		<li><?php if ( !have_posts() ) : echo('<span>Uudised</span>'); else: echo('<a href="#uudised">Uudised</a>'); endif; ?></li>
 		<li><?php if ( !$all_events->have_posts() ) : echo('<span>Kava 2015</span>'); else: echo('<a href="#kava">Kava 2015</a>'); endif; ?></li>
 		<li><?php if ( !$workshops->have_posts() ) : echo('<span>Töötoad</span>'); else: echo('<a href="#tootoad">Töötoad</a>'); endif; ?></li>
@@ -85,9 +93,38 @@ function lft_format_date($yyyyxmmxdd) {
 	</ul>
 </nav>
 
+
+
 	<main id="content-area" class="container-fluid">
 
 		
+		<?php /*sponsors section*/ if ( $galleryitems->have_posts() ) :?>
+
+		<section id="toetajad" class="row">
+			<h2 class="col-sm-12">Toetajad</h2>
+			<ul>
+			<?php while ( $sponsors->have_posts() ) : $sponsors->the_post(); ?>
+				
+				<?php if (has_post_thumbnail()): ?>
+
+				<li class="col-sm-4 lft-sponsors-col sponsor-logo">
+					<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+				</li>
+
+				<?php else: ?>
+
+				<li class="col-sm-4 lft-sponsors-col sponsor-name">
+					<div class="box"><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+				</li>
+
+				<?php endif; ?>
+				
+			<?php endwhile;?>
+			</ul>
+		</section>
+
+		<?php endif; /*end sponsors section*/?>
+
 
 		
 		
