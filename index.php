@@ -49,7 +49,7 @@ $movies = new WP_Query( $args );
 $args = array( 
 	'post_type' => 'lft_galleryitem',
 	'nopaging' => 'true', 
-	'order' => 'ASC' 
+	'order' => 'DESC' 
 );
 $galleryitems = new WP_Query( $args );
 
@@ -58,14 +58,14 @@ $args = array(
 	'nopaging' => 'true', 
 	'orderby' => 'meta_value',  
 	'meta_key' => 'event_year', 
-	'order' => 'ASC' 
+	'order' => 'DESC' 
 );
 $archiveitems = new WP_Query( $args );
 
 $args = array( 
 	'post_type' => 'lft_sponsor',
 	'nopaging' => 'true', 
-	'order' => 'DESC' 
+	'order' => 'ASC' 
 );
 $sponsors = new WP_Query( $args );
 
@@ -98,7 +98,7 @@ function lft_format_date($yyyyxmmxdd) {
 	<main id="content-area" class="container-fluid">
 
 		
-		<?php /*sponsors section*/ if ( $galleryitems->have_posts() ) :?>
+		<?php /*sponsors section*/ if ( $sponsors->have_posts() ) :?>
 
 		<section id="toetajad" class="row">
 			<h2 class="col-sm-12">Toetajad</h2>

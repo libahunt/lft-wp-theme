@@ -1003,6 +1003,10 @@ section {
 	display: block;
 	position: relative;
 }
+.lft-galleryitem-col img {
+	display: block;
+	margin: 0 auto;
+}
 .lft-galleryitem-col .overlay {
 	position: absolute;
 	width: 100%;
@@ -1096,6 +1100,10 @@ section {
 	height: 1px;
 	padding: 0 0 63.8%;
 	overflow: hidden;
+}
+.lft-sponsors-col img {
+	display: block;
+	margin: 0 auto;
 }
 .lft-sponsors-col .overlay {
 	position: absolute;
