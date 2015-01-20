@@ -104,21 +104,26 @@ function lft_format_date($yyyyxmmxdd) {
 			<h2 class="col-sm-12">Toetajad</h2>
 			<ul>
 			<?php while ( $sponsors->have_posts() ) : $sponsors->the_post(); ?>
-				
+
 				<?php if (has_post_thumbnail()): ?>
 
 				<li class="col-sm-4 lft-sponsors-col sponsor-logo">
-					<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+					<?php if (get_post_custom_values('webpage')[0]!= null): ?><a href="<?php echo get_post_custom_values('webpage')[0]; ?>" target="_blank"><?php endif; ?>
+						
+						<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+					<?php if (get_post_custom_values('webpage')[0]!= ""): ?></a><?php endif; ?>
 				</li>
 
 				<?php else: ?>
 
 				<li class="col-sm-4 lft-sponsors-col sponsor-name">
-					<div class="box"><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+					<?php if (get_post_custom_values('webpage')[0]!= null): ?><a href="<?php echo get_post_custom_values('webpage')[0]; ?>" target="_blank"><?php endif; ?>
+						<div class="box"><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+					<?php if (get_post_custom_values('webpage')[0]!= ""): ?></a><?php endif; ?>
 				</li>
 
 				<?php endif; ?>
-				
+
 			<?php endwhile;?>
 			</ul>
 		</section>
