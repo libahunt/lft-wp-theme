@@ -70,11 +70,14 @@ $args = array(
 $sponsors = new WP_Query( $args );
 
 /*EVENT DATES DISPLAY*/
-function lft_format_date($yyyyxmmxdd) {
-  //$dayofweek = date('w', strtotime($date));
-  //$result    = date('Y-m-d', strtotime(($day - $dayofweek).' day', strtotime($date)));
-  return getdate(strtotime($yyyyxmmxdd))['wday'];
-  //return substr(yyyymmdd, 6, 2) . substr(yyyymmdd, 4, 2) . substr(yyyymmdd, 0, 4)  . 
+function lft_format_date($yyyymmdd) {
+	$d = mktime(0, 0, 0, intval(substr($yyyymmdd, 4, 2)), intval(substr($yyyymmdd, 6, 2)), intval(substr($yyyymmdd, 0, 4)));
+	$weekdays = array('P','E','T','K','N','R','L');
+	$wd = $weekdays[date('w', $d)];
+	$dd = intval(substr($yyyymmdd, 6, 2));
+	$months = array('Jaanuar','Veebruar','Märts','Aprill','Mai','Juuni','Juuli','August','September','Oktoober','November','Detsember');
+	$mn = $months[date('m', $d)-1];
+	return '<span>' . $wd . '</span> <span>' . $dd . '</span> ' . $mn ;
 }
 
 ?>
@@ -109,7 +112,6 @@ function lft_format_date($yyyyxmmxdd) {
 
 				<li class="col-sm-4 lft-sponsors-col sponsor-logo">
 					<?php if (get_post_custom_values('webpage')[0]!= null): ?><a href="<?php echo get_post_custom_values('webpage')[0]; ?>" target="_blank"><?php endif; ?>
-						
 						<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
 					<?php if (get_post_custom_values('webpage')[0]!= ""): ?></a><?php endif; ?>
 				</li>
@@ -159,26 +161,28 @@ function lft_format_date($yyyyxmmxdd) {
 
 		
 		<?php /*all_events section*/ if ( $all_events->have_posts() ) : ?>
-		<?php $event_date_save = ""; ?>
+		<?php $event_date_save = ""; $i = 0; ?>
 		<section id="kava" class="row">
 			<div class="col-sm-12">
 				<h2>Kava</h2>
-		
+
 				<?php while ( $all_events->have_posts() ) : $all_events->the_post(); ?>
 
 					<?php if ($event_date_save != get_post_custom_values('event_date')[0]) {
+						if ($i != 0) {echo '</div>';}
 						echo '<h3>';
-						lft_format_date(get_post_custom_values('event_date')[0]); 
-						echo '</h3>';
+						echo lft_format_date(get_post_custom_values('event_date')[0]); 
+						echo '</h3><div class="day">';
 						$event_date_save = get_post_custom_values('event_date')[0];
+						$i++;
 					} ?>
-
-				<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item event-<?php echo get_post_custom_values('event_time')[0]; ?>">
+				<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item" data-time="<?php echo substr(get_post_custom_values('event_time')[0], 0, 2) . substr(get_post_custom_values('event_time')[0], 3, 2) ; ?>">
 					<span class="time"><?php echo get_post_custom_values('event_time')[0]; ?></span>
 					<h4><?php the_title(); ?></h4>
 				</a>
 
 				<?php endwhile;?>
+				</div>
 
 			</div>
 		</section>
@@ -195,9 +199,11 @@ function lft_format_date($yyyyxmmxdd) {
 			<h2>Töötoad</h2>
 
 			<?php while ( $workshops->have_posts() ) : $workshops->the_post(); ?>
-				<a class="workshop-item col-sm-4" href="<?php echo get_permalink(); ?>" data-open="lft-modal">
-					<h3><?php the_title(); ?></h3>
-				</a>
+				<div class="col-sm-4 lft-workshops-col">
+					<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="workshop-item">
+						<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
+					</a>
+				</div>
 			<?php endwhile;?>
 			
 		</section>
@@ -209,7 +215,7 @@ function lft_format_date($yyyyxmmxdd) {
 
 		<?php /*movies section*/ if ( $movies->have_posts() ) : ?>
 		
-		<?php $event_date_save = ""; ?>
+		<?php $event_date_save = ""; $i = 0; ?>
 		<section id="kino" class="row">
 			<div class="col-sm-12">
 				<h2>Kino</h2>
@@ -217,18 +223,21 @@ function lft_format_date($yyyyxmmxdd) {
 				<?php while ( $movies->have_posts() ) : $movies->the_post(); ?>
 
 					<?php if ($event_date_save != get_post_custom_values('event_date')[0]) {
+						if ($i != 0) {echo '</div>';}
 						echo '<h3>';
-						echo get_post_custom_values('event_date')[0]; 
-						echo '</h3>';
+						echo lft_format_date(get_post_custom_values('event_date')[0]); 
+						echo '</h3><div class="day">';
 						$event_date_save = get_post_custom_values('event_date')[0];
+						$i++;
 					} ?>
 
-					<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item event-<?php echo get_post_custom_values('event_date')[0]; ?>">
+					<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item" data-time="<?php echo substr(get_post_custom_values('event_time')[0], 0, 2) . substr(get_post_custom_values('event_time')[0], 3, 2) ; ?>">
 						<span class="time"><?php echo get_post_custom_values('event_time')[0]; ?></span>
 						<h4><?php the_title(); ?></h4>
 					</a>
 
 				<?php endwhile;?>
+				</div>
 
 			</div>
 		</section>

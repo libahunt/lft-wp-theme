@@ -1,5 +1,6 @@
 jQuery(function($) {
 	
+	/*Opening content in modal windows*/
 	$('#uudised .more-link').attr('data-open','lft-modal');
 
 	$('[data-open="lft-modal"]').click(function(e) {
@@ -14,6 +15,7 @@ jQuery(function($) {
 		return false;
 	});
 
+	/*Anchors menu*/
 	$('#anchors-menu').hide();
 	$('#anchors-menu-toggle').show();
 	$('#anchors-menu-toggle').click(function() {
@@ -22,6 +24,37 @@ jQuery(function($) {
 	$('#anchors-menu a').click(function() {
 		$('#anchors-menu').hide();
 		return true;
+	});
+
+	/*Arrow button scrolling down*/
+	$('#scrollarrow').click(function() {
+		var x = $(document).scrollTop() + $(window).height() * 0.9;
+		$("html,body").animate({ scrollTop: x }, 300);
+	});
+	
+
+	/*Sorting the events into time order*/
+	$('.day .event-item').addClass('hidden');
+	$('.day').each(function() {
+		var dayDiv = $(this);
+		dayDiv.find('.event-item.hidden').each(function() {
+			if (dayDiv.find('.event-item.shown').length > 0) {
+				var theElement = $(this);
+				var time = $(this).attr('data-time');
+				var done = false;
+				dayDiv.find('.event-item.shown').each(function() {
+					if ( time < $(this).attr('data-time') ) {
+						theElement.insertBefore($(this));
+						done = true;
+						return false;
+					}
+				});
+				if (!done) {
+					theElement.appendTo(dayDiv);
+				}
+			}
+			$(this).removeClass('hidden').addClass('shown');
+		});
 	});
 
 
