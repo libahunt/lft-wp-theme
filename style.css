@@ -858,6 +858,10 @@ a {
 #anchors-menu span {
 	color: #5d5d5d;
 }
+#anchors-menu #languages a {
+	display: inline-block;
+	padding: 0;
+}
 
 #scrollarrow {
 	position: fixed;

@@ -93,6 +93,7 @@ function lft_format_date($yyyymmdd) {
 		<li><a href="#meist">Meist</a></li>
 		<li><?php if ( $galleryitems->have_posts() ) : echo('<a href="#galerii">Galerii</a>'); endif; ?></li>
 		<li><?php if ( $archiveitems->have_posts() ) : echo('<a href="#arhiiv">Arhiiv</a>'); endif; ?></li>
+		<li id="languages"><a href="<?php echo get_permalink(40); ?>" data-open="lft-modal">ENG</a> &#124; <a href="<?php echo get_permalink(40); ?>" data-open="lft-modal">RUS</a></li>
 	</ul>
 </nav>
 
@@ -182,7 +183,6 @@ function lft_format_date($yyyymmdd) {
 				</a>
 
 				<?php endwhile;?>
-				</div>
 
 			</div>
 		</section>
@@ -237,7 +237,6 @@ function lft_format_date($yyyymmdd) {
 					</a>
 
 				<?php endwhile;?>
-				</div>
 
 			</div>
 		</section>
