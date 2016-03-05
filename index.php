@@ -69,6 +69,8 @@ $args = array(
 );
 $sponsors = new WP_Query( $args );
 
+
+
 /*EVENT DATES DISPLAY*/
 function lft_format_date($yyyymmdd) {
 	$d = mktime(0, 0, 0, intval(substr($yyyymmdd, 4, 2)), intval(substr($yyyymmdd, 6, 2)), intval(substr($yyyymmdd, 0, 4)));
@@ -93,7 +95,17 @@ function lft_format_date($yyyymmdd) {
 		<li><a href="#meist">Meist</a></li>
 		<li><?php if ( $galleryitems->have_posts() ) : echo('<a href="#galerii">Galerii</a>'); endif; ?></li>
 		<li><?php if ( $archiveitems->have_posts() ) : echo('<a href="#arhiiv">Arhiiv</a>'); endif; ?></li>
-		<!--<li id="languages"><a href="<?php echo get_permalink(392); ?>" data-open="lft-modal">ENG</a> &#124; <a href="<?php echo get_permalink(390); ?>" data-open="lft-modal">RUS</a></li>-->
+
+		<?php 
+		  $pages = get_pages(); 
+		  foreach ( $pages as $page ) {
+		  	$option = '<li><a href="' . get_page_link( $page->ID ) . '"  data-open="lft-modal">';
+			$option .= $page->post_title;
+			$option .= '</a></li>';
+			echo $option;
+		  }
+		?>
+		
 	</ul>
 </nav>
 
