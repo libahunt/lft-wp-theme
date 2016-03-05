@@ -246,6 +246,15 @@ function lft_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'lft_scripts' );
 
+/**
+ * Add custom version numbering to style.
+ */
+function version_wp_default_styles($styles)
+{
+  $styles->default_version = "20160305";
+}
+add_action("wp_default_styles", "version_wp_default_styles");
+
 
 /**
  * Implement the Custom Header feature.

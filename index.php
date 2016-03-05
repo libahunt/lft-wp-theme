@@ -125,6 +125,7 @@ function lft_format_date($yyyymmdd) {
 
 				<?php endwhile;?>
 
+				<?php if ( $all_events->have_posts() ):?></div><?php endif;?>
 			</div>
 		</section>
 
@@ -133,7 +134,7 @@ function lft_format_date($yyyymmdd) {
 
 
 		
-		<?php /*sponsors section*/ if ( $sponsors->have_posts() ) :?>
+		<?php /*toetajad section*/ if ( $sponsors->have_posts() ) :?>
 
 		<section id="toetajad" class="row">
 			<h2 class="col-sm-12">Toetajad</h2>
@@ -142,7 +143,7 @@ function lft_format_date($yyyymmdd) {
 
 				<?php if (has_post_thumbnail()): ?>
 
-				<li class="col-sm-4 lft-sponsors-col sponsor-logo">
+				<li class="col-sm-4 lft-toetaja-col toetaja-logo">
 					<?php if (get_post_custom_values('webpage')[0]!= null): ?><a href="<?php echo get_post_custom_values('webpage')[0]; ?>" target="_blank"><?php endif; ?>
 						<div class="box"><?php the_post_thumbnail( 'lft-gallery-thumb' ); ?><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
 					<?php if (get_post_custom_values('webpage')[0]!= ""): ?></a><?php endif; ?>
@@ -150,7 +151,7 @@ function lft_format_date($yyyymmdd) {
 
 				<?php else: ?>
 
-				<li class="col-sm-4 lft-sponsors-col sponsor-name">
+				<li class="col-sm-4 lft-toetaja-col toetaja-name">
 					<?php if (get_post_custom_values('webpage')[0]!= null): ?><a href="<?php echo get_post_custom_values('webpage')[0]; ?>" target="_blank"><?php endif; ?>
 						<div class="box"><div class="overlay"><span class="name"><span><?php the_title(); ?></span></span></div></div>
 					<?php if (get_post_custom_values('webpage')[0]!= ""): ?></a><?php endif; ?>
@@ -236,6 +237,7 @@ function lft_format_date($yyyymmdd) {
 
 				<?php endwhile;?>
 
+				<?php if ( $movies->have_posts() ):?></div><?php endif;?>
 			</div>
 		</section>
 		

@@ -924,7 +924,7 @@ section {
 	margin: 1em 0 0.6em;
 }
 
-/*** SPONSORS SECTION ***/
+/*** toetaja SECTION ***/
 #toetajad {
 	
 }
@@ -938,11 +938,13 @@ section {
 #toetajad li {
 	list-style: none;
 }
-.lft-sponsors-col {
+.lft-sponsors-col,
+.lft-toetaja-col {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
-.lft-sponsors-col .box {
+.lft-sponsors-col .box,
+.lft-toetaja-col .box {
 	border: 1px solid #ea0889;
 	display: block;
 	position: relative;
@@ -950,11 +952,13 @@ section {
 	padding: 0 0 63.8%;
 	overflow: hidden;
 }
-.lft-sponsors-col img {
+.lft-sponsors-col img,
+.lft-toetaja-col img {
 	display: block;
 	margin: 0 auto;
 }
-.lft-sponsors-col .overlay {
+.lft-sponsors-col .overlay,
+.lft-toetaja-col .overlay {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -962,7 +966,8 @@ section {
 	top: 0;
 	left: 0;
 }
-.lft-sponsors-col .name {
+.lft-sponsors-col .name,
+.lft-toetaja-col .name {
 	font-size: 2em;
 	padding: 0.5em 0;
 	text-align: center;
@@ -973,16 +978,19 @@ section {
 	font-size: 1.4em;
 	font-weight: 400;
 }
-.lft-sponsors-col .name span {
+.lft-sponsors-col .name span,
+.lft-toetaja-col .name span {
 	display: table-cell;
 	vertical-align: middle;
 }
-.lft-sponsors-col.sponsor-logo .overlay {
+.lft-sponsors-col.sponsor-logo .overlay,
+.lft-toetaja-col.toetaja-logo .overlay {
 	display: none;
 	background: rgba(0, 0, 0, 0.5);
 	color: #ffffff;
 }
-.lft-sponsors-col.sponsor-logo:hover .overlay {
+.lft-sponsors-col.sponsor-logo:hover .overlay,
+.lft-toetaja-col.toetaja-logo:hover .overlay {
 	display: block;
 }
 
@@ -1235,7 +1243,7 @@ section {
 	vertical-align: middle;
 }
 
-/*** SPONSORS SECTION ***/
+/*** toetaja SECTION **
 #toetajad {
 	
 }
@@ -1249,11 +1257,11 @@ section {
 #toetajad li {
 	list-style: none;
 }
-.lft-sponsors-col {
+.lft-s-col {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
-.lft-sponsors-col .box {
+.lft-s-col .box {
 	border: 1px solid #ea0889;
 	display: block;
 	position: relative;
@@ -1261,11 +1269,11 @@ section {
 	padding: 0 0 63.8%;
 	overflow: hidden;
 }
-.lft-sponsors-col img {
+.lft-s-col img {
 	display: block;
 	margin: 0 auto;
 }
-.lft-sponsors-col .overlay {
+.lft-s-col .overlay {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -1273,7 +1281,7 @@ section {
 	top: 0;
 	left: 0;
 }
-.lft-sponsors-col .name {
+.lft-s-col .name {
 	font-size: 2em;
 	padding: 0.5em 0;
 	text-align: center;
@@ -1284,18 +1292,19 @@ section {
 	font-size: 1.4em;
 	font-weight: 400;
 }
-.lft-sponsors-col .name span {
+.lft-s-col .name span {
 	display: table-cell;
 	vertical-align: middle;
 }
-.lft-sponsors-col.sponsor-logo .overlay {
+.lft-s-col.s-logo .overlay {
 	display: none;
 	background: rgba(0, 0, 0, 0.5);
 	color: #ffffff;
 }
-.lft-sponsors-col.sponsor-logo:hover .overlay {
+.lft-s-col.s-logo:hover .overlay {
 	display: block;
 }
+*/
 
 /********************************* MODAL WINDOW *****************************************/
 .modal-dialog {
