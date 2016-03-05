@@ -817,6 +817,11 @@ a {
 	padding: 0 0.48em;
 	border: 8px solid #ea0889;
 }
+@media screen and (max-width: 480px) {
+	#masthead .site-branding:after { {
+		font-size: 1.5em;
+	} 
+}
 
 
 /*** MENU ***/
@@ -842,6 +847,13 @@ a {
 	margin: 0 auto 2em;
 	max-width: 1180px;
 	background: #ffffff;
+}
+@media screen and (max-width: 480px) {
+	#anchors-menu {
+		font-size: 1.5em;
+		padding-left: 0.5em;
+		padding-right: 0.6em;
+	} 
 }
 #anchors-menu ul {
 	display: inline-block;
@@ -926,6 +938,18 @@ section {
 	text-align: center;
 	font-weight: 700;
 	margin: 1em 0 0.6em;
+}
+@media screen and (max-width: 480px) {
+	#toetajad h2,
+	#uudised h2,
+	#kava h2,
+	#tootoad h2,
+	#kino h2,
+	#galerii h2,
+	#meist h2,
+	#arhiiv h2 {
+		font-size: 1.5em;
+	} 
 }
 
 /*** toetaja SECTION ***/
@@ -1023,6 +1047,11 @@ section {
 	line-height: 1.15;
 	margin: 0;
 }
+@media screen and (max-width: 480px) {
+	#uudised li h3 {
+		font-size: 1.2em;
+	} 
+}
 #uudised li p {
 	margin: 0;
 }
@@ -1054,6 +1083,12 @@ section {
 	font-weight: 400;
 	margin: 1.2em 0 0.5em;
 }
+@media screen and (max-width: 480px) {
+	#kava h3,
+	#kino h3 {
+		font-size: 1.5em;
+	}
+}
 #kava h3 span:after,
 #kino h3 span:after {
 	content: " \2758";
@@ -1075,6 +1110,11 @@ section {
 	line-height: 1.2;
 	position: relative;
 	margin: 0 0 0.7em;
+}
+@media screen and (max-width: 480px) {
+	.event-item { {
+		font-size: 1.5em;
+	}
 }
 .event-item .time {
 	display: block;
