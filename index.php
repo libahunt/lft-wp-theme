@@ -97,7 +97,11 @@ function lft_format_date($yyyymmdd) {
 		<li><?php if ( $archiveitems->have_posts() ) : echo('<a href="#arhiiv">Arhiiv</a>'); endif; ?></li>
 
 		<?php 
-		  $pages = get_pages(); 
+			$args = array(
+				'sort_column' => 'menu_order',
+				'post_status' => 'publish'
+			); 
+		  $pages = get_pages($args); 
 		  foreach ( $pages as $page ) {
 		  	$option = '<li><a href="' . get_page_link( $page->ID ) . '"  data-open="lft-modal">';
 			$option .= $page->post_title;
