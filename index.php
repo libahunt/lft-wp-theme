@@ -85,20 +85,52 @@ function lft_format_date($yyyymmdd) {
 <a id="anchors-menu-toggle" href="#anchors-menu">Menüü</a>
 <nav id="anchors-menu">
 	<ul>
+		<li><?php if ( !$all_events->have_posts() ) : echo('<span>Kava 2016</span>'); else: echo('<a href="#kava">Kava 2016</a>'); endif; ?></li>
 		<li><?php if ( $sponsors->have_posts() ) : echo('<a href="#toetajad">Toetajad</a>'); endif; ?></li>
 		<li><?php if ( !have_posts() ) : echo('<span>Uudised</span>'); else: echo('<a href="#uudised">Uudised</a>'); endif; ?></li>
-		<li><?php if ( !$all_events->have_posts() ) : echo('<span>Kava 2015</span>'); else: echo('<a href="#kava">Kava 2015</a>'); endif; ?></li>
 		<li><?php if ( !$workshops->have_posts() ) : echo('<span>Töötoad</span>'); else: echo('<a href="#tootoad">Töötoad</a>'); endif; ?></li>
 		<li><?php if ( !$movies->have_posts() ) : echo('<span>Kino</span>'); else: echo('<a href="#kino">Kino</a>'); endif; ?></li>
 		<li><a href="#meist">Meist</a></li>
 		<li><?php if ( $galleryitems->have_posts() ) : echo('<a href="#galerii">Galerii</a>'); endif; ?></li>
 		<li><?php if ( $archiveitems->have_posts() ) : echo('<a href="#arhiiv">Arhiiv</a>'); endif; ?></li>
+		<!--<li id="languages"><a href="<?php echo get_permalink(392); ?>" data-open="lft-modal">ENG</a> &#124; <a href="<?php echo get_permalink(390); ?>" data-open="lft-modal">RUS</a></li>-->
 	</ul>
 </nav>
 
 
 
 	<main id="content-area" class="container-fluid">
+
+
+		<?php /*all_events section*/ if ( $all_events->have_posts() ) : ?>
+		<?php $event_date_save = ""; $i = 0; ?>
+		<section id="kava" class="row">
+			<div class="col-sm-12">
+				<h2>Kava</h2>
+
+				<?php while ( $all_events->have_posts() ) : $all_events->the_post(); ?>
+
+					<?php if ($event_date_save != get_post_custom_values('event_date')[0]) {
+						if ($i != 0) {echo '</div>';}
+						echo '<h3>';
+						echo lft_format_date(get_post_custom_values('event_date')[0]); 
+						echo '</h3><div class="day">';
+						$event_date_save = get_post_custom_values('event_date')[0];
+						$i++;
+					} ?>
+				<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item" data-time="<?php echo substr(get_post_custom_values('event_time')[0], 0, 2) . substr(get_post_custom_values('event_time')[0], 3, 2) ; ?>">
+					<span class="time"><?php echo get_post_custom_values('event_time')[0]; ?></span>
+					<h4><?php the_title(); ?></h4>
+				</a>
+
+				<?php endwhile;?>
+
+			</div>
+		</section>
+
+		<?php endif; /*end all_events section*/?>
+
+
 
 		
 		<?php /*sponsors section*/ if ( $sponsors->have_posts() ) :?>
@@ -159,40 +191,6 @@ function lft_format_date($yyyymmdd) {
 
 
 
-		
-		<?php /*all_events section*/ if ( $all_events->have_posts() ) : ?>
-		<?php $event_date_save = ""; $i = 0; ?>
-		<section id="kava" class="row">
-			<div class="col-sm-12">
-				<h2>Kava</h2>
-
-				<?php while ( $all_events->have_posts() ) : $all_events->the_post(); ?>
-
-					<?php if ($event_date_save != get_post_custom_values('event_date')[0]) {
-						if ($i != 0) {echo '</div>';}
-						echo '<h3>';
-						echo lft_format_date(get_post_custom_values('event_date')[0]); 
-						echo '</h3><div class="day">';
-						$event_date_save = get_post_custom_values('event_date')[0];
-						$i++;
-					} ?>
-				<a href="<?php echo get_permalink(); ?>" data-open="lft-modal" class="event-item" data-time="<?php echo substr(get_post_custom_values('event_time')[0], 0, 2) . substr(get_post_custom_values('event_time')[0], 3, 2) ; ?>">
-					<span class="time"><?php echo get_post_custom_values('event_time')[0]; ?></span>
-					<h4><?php the_title(); ?></h4>
-				</a>
-
-				<?php endwhile;?>
-				</div>
-
-			</div>
-		</section>
-
-		<?php endif; /*end all_events section*/?>
-
-
-
-
-
 		<?php /*workshops section*/if ( $workshops->have_posts() ) :?>
 
 		<section id="tootoad" class="row">
@@ -237,7 +235,6 @@ function lft_format_date($yyyymmdd) {
 					</a>
 
 				<?php endwhile;?>
-				</div>
 
 			</div>
 		</section>

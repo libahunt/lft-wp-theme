@@ -801,7 +801,7 @@ a {
 	margin: 0;
 }
 #masthead .site-branding:after {/*replacement visual date*/
-	content: "3-7 | MÄRTS | 2015";
+	content: "8-12 | MÄRTS | 2016";
 	font-size: 2.27em;
 	line-height: 1.64;
 	text-indent: -99999em;
@@ -810,7 +810,7 @@ a {
 	display: inline-block;
 	white-space: nowrap;
 	text-indent: 0;
-	padding: 0 0.88em;
+	padding: 0 0.48em;
 	border: 8px solid #ea0889;
 }
 
@@ -857,6 +857,10 @@ a {
 }
 #anchors-menu span {
 	color: #5d5d5d;
+}
+#anchors-menu #languages a {
+	display: inline-block;
+	padding: 0;
 }
 
 #scrollarrow {
@@ -1043,7 +1047,7 @@ section {
 	content: " \2758";
 	display: inline;
 	color: #ea0889;
-	margin: 0 -0.45em;
+	margin: 0 -0.2em;
 }
 .event-item:hover,
 .event-item:focus {
@@ -1324,7 +1328,7 @@ section {
 	width: 32px;
 	height: 32px;
 	text-indent: -99999em;
-	background: url(img/trobber.gif) no-repeat;
+	background: url(img/throbber.gif) no-repeat;
 	margin: 4em auto;
 }
 
@@ -1367,11 +1371,9 @@ h2.event-time {
 	font-weight: 400;
 	margin: 0 0 0.5em;
 }
-#kava h3 span:after,
-#kino h3 span:after,
 h2.event-time span:after {
 	content: " \2758";
 	display: inline;
 	color: #ea0889;
-	margin: 0 -0.45em;
+	margin: 0 -0.2em;
 }
