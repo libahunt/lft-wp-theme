@@ -17,6 +17,8 @@
 
 
 <?php wp_head(); ?>
+
+
 <style>
 #anchors-menu #languages a {
 	display: inline-block;

@@ -11,6 +11,9 @@ jQuery(function($) {
 		var url = $(this).attr('href');
 		$("#lft-modal-content").load(url+" #primary", function() {
 			$("#lft-modal-loading").hide();
+			$("#lft-modal .close").on('touchstart', function() {
+				$('#lft-modal').modal('hide');
+			});
 		});
 		return false;
 	});

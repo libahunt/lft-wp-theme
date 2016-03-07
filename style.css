@@ -768,6 +768,11 @@ a {
 @media screen and (min-height: 800px) {#masthead { height: 770px; }}
 @media screen and (min-height: 900px) {#masthead { height: 870px; }}
 
+@media screen and (max-width: 450px) {
+	#masthead {  
+		padding-top: 6em;
+	}
+}
 #masthead .site-branding {
 	text-align: center;
 	display: table-cell;
@@ -818,7 +823,7 @@ a {
 	border: 8px solid #ea0889;
 }
 @media screen and (max-width: 480px) {
-	#masthead .site-branding:after { {
+	#masthead .site-branding:after {
 		font-size: 1.5em;
 	} 
 }
@@ -835,6 +840,11 @@ a {
 	background: #ffffff url(img/menubutton.png) no-repeat center center;
 	background-size: contain;
 	z-index: 101;
+}
+@media screen and (max-width: 480px) {
+	#anchors-menu-toggle {
+		top: 0.9em;
+	}
 }
 #anchors-menu {
 	border: 8px solid #ea0889;
@@ -1112,7 +1122,7 @@ section {
 	margin: 0 0 0.7em;
 }
 @media screen and (max-width: 480px) {
-	.event-item { {
+	.event-item {
 		font-size: 1.5em;
 	}
 }
@@ -1307,14 +1317,32 @@ section {
 
 
 /********************************* MODAL WINDOW *****************************************/
+.modal {
+	overflow-y: scroll;
+	–webkit-overflow-scrolling: touch;
+}
 .modal-dialog {
     width: 1180px;
     max-width: 96%;
+    z-index: 3;
+    -webkit-transform: translateZ(0);
 }
 .modal-content {
 	border-radius: 0;
 	box-shadow: none;
-	border: 1px solid  #ea0889;
+	border: 1px solid #ea0889;
+	z-index: 4;
+}
+@media screen and (max-width: 480px) {/*fix for iphone modal not scrolling*/
+	.modal {
+		height: 100%;
+	}
+	.modal-dialog {
+	    height: 100%;
+	}
+	.modal-content {
+		overflow-y: auto;
+	}
 }
 .modal-content .close {
 	position: absolute;
@@ -1333,6 +1361,11 @@ section {
 	opacity: 1;
 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 }
+@media screen and (max-width: 480px) {
+	.modal-content .close {
+		font-size: 0.8em;
+	}
+}
 #lft-modal-loading {
 	width: 32px;
 	height: 32px;
@@ -1349,6 +1382,12 @@ section {
 	line-height: 1;
 	padding: 0.22em 2.98em 0.22em 1.1em;
 	margin: 0;
+}
+@media screen and (max-width: 480px) {
+	.entry-header h1 {
+		font-size: 1.5em;
+		padding-right: 2em;
+	}
 }
 .lft-galleryitem-title {
 	font-size: 1em;
@@ -1379,6 +1418,11 @@ h2.event-time {
 	line-height: 1.2;
 	font-weight: 400;
 	margin: 0 0 0.5em;
+}
+@media screen and (max-width: 480px) {
+	h2.event-time {
+		font-size: 1.5em;
+	}
 }
 h2.event-time span:after {
 	content: " \2758";

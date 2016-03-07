@@ -99,7 +99,8 @@ function lft_format_date($yyyymmdd) {
 		<?php 
 			$args = array(
 				'sort_column' => 'menu_order',
-				'post_status' => 'publish'
+				'post_status' => 'publish',
+				'exclude' => '40',
 			); 
 		  $pages = get_pages($args); 
 		  foreach ( $pages as $page ) {
